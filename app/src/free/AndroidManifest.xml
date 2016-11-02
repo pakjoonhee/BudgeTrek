@@ -8,7 +8,7 @@
     <application>
         <provider
             android:name=".data.generated.DatabaseProvider"
-            android:authorities="com.example.joonheepak.finalproject.data.DatabaseProvider1"
+            android:authorities="com.example.joonheepak.finalproject.data.DatabaseProvider"
             android:exported="true"
             tools:replace="android:authorities" />
 
@@ -22,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".free.MainActivity" />
         <activity android:name=".free.TwoFragmentsCalendar" />
     </application>
