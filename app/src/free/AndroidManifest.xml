@@ -9,7 +9,7 @@
         <provider
             android:name=".data.generated.DatabaseProvider"
             android:authorities="@string/content_provider"
-            android:exported="false" />
+            android:exported="true" />
 
         <activity
             android:name=".free.SplashActivity"
