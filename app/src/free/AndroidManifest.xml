@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.joonheepak.finalproject">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application>
+        <provider
+            android:name=".data.generated.DatabaseProvider"
+            android:authorities="com.example.joonheepak.finalproject.data.DatabaseProvider1"
+            android:exported="true"
+            tools:replace="android:authorities" />
+
+        <activity
+            android:name=".free.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@style/splashScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".free.MainActivity" />
+        <activity android:name=".free.TwoFragmentsCalendar" />
+    </application>
+
+</manifest>

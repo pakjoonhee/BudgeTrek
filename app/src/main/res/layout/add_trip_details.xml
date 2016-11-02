@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:id="@+id/blahcrap"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/border"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trip_details"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="#5697ff"
+            android:fontFamily="Roboto-Thin"/>
+
+        <TextView
+            android:id="@+id/done"
+            android:text="@string/done"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#5697ff"
+            android:clickable="true"
+            android:layout_below="@+id/upload_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="end"/>
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:layout_width="fill_parent">
+
+
+            <EditText
+                android:id="@+id/trip_name"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:hint="@string/trip_name"
+                android:maxLines="1"
+                android:textSize="20sp"
+                android:elevation="5dp"
+                android:gravity="bottom|center_horizontal"
+                android:textColor="#5697ff"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border"
+                android:layout_centerHorizontal="true"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/start_date"
+                android:elevation="5dp"
+                android:textColor="#5697ff"
+                android:textStyle="bold"
+                android:gravity="bottom|center_horizontal"
+                android:id="@+id/trip_start_text"
+                android:layout_below="@id/trip_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+
+            <TextView
+                android:id="@+id/dateStartText"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:elevation="5dp"
+                android:textSize="20sp"
+                android:textColor="#5697ff"
+                android:gravity="bottom|center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/trip_start_text"
+                android:background="@drawable/border"
+                android:onClick="onClickDates1"
+                />
+
+            <ImageButton
+
+                android:layout_below="@id/trip_start_text"
+                android:id="@+id/start_date_button"
+                android:layout_width="40dp"
+                android:contentDescription="@string/enter_start_date"
+                android:elevation="5dp"
+                android:layout_height="40dp"
+                android:background="@drawable/border"
+                android:layout_toLeftOf="@id/dateStartText"
+                android:layout_toStartOf="@id/dateStartText"
+                android:onClick="onClickDates1"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/end_date"
+                android:elevation="5dp"
+                android:textStyle="bold"
+                android:textColor="#5697ff"
+                android:id="@+id/trip_end_text"
+                android:gravity="center_vertical"
+                android:layout_below="@id/start_date_button"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+
+            <TextView
+                android:id="@+id/dateEndText"
+                android:textSize="20sp"
+                android:textColor="#5697ff"
+                android:elevation="5dp"
+                android:gravity="bottom|center_horizontal"
+                android:layout_below="@id/trip_end_text"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/border"
+                android:onClick="onClickDates2"/>
+
+            <ImageButton
+
+                android:layout_below="@id/trip_end_text"
+                android:id="@+id/end_date_button"
+                android:elevation="5dp"
+                android:contentDescription="@string/enter_start_date"
+                android:layout_toLeftOf="@id/dateEndText"
+                android:layout_toStartOf="@id/dateEndText"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/border"
+                android:onClick="onClickDates2"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/select_country_text"
+                android:text="@string/country_destination"
+                android:textStyle="bold"
+                android:textColor="#5697ff"
+                android:layout_below="@+id/dateEndText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <Button
+                android:text="@string/select_country"
+                android:layout_below="@id/select_country_text"
+                android:background="@drawable/border"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:textStyle="bold"
+                android:textColor="#5697ff"
+                android:onClick="onClickFlag"
+                android:layout_centerInParent="true"
+                android:id="@+id/flag_button" />
+
+            <ImageButton
+                android:id="@+id/flag_image_button"
+                android:layout_below="@id/select_country_text"
+                android:layout_width="50dp"
+                android:elevation="5dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/choose_flag"
+                android:onClick="onClickFlag"
+                android:layout_toLeftOf="@id/flag_button"
+                android:layout_toStartOf="@id/flag_button"
+                android:background="@drawable/border"
+                android:clickable="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/budget_text"
+                android:text="@string/budget"
+                android:textColor="#5697ff"
+                android:textStyle="bold"
+                android:layout_below="@+id/flag_image_button"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:layout_below="@id/budget_text"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/currency_edit"
+                android:elevation="5dp"
+                android:textColor="#5697ff"
+                android:inputType="numberDecimal"
+                android:gravity="center_horizontal|bottom"
+                android:maxLines="1"
+                android:background="@drawable/border"/>
+
+            <Button
+                android:id="@+id/currency_symbol_button"
+                android:layout_below="@id/budget_text"
+                android:elevation="5dp"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:textColor="#5697ff"
+                android:background="@drawable/border"
+                android:layout_toLeftOf="@id/currency_edit"
+                android:layout_toStartOf="@id/currency_edit"
+                android:clickable="true" />
+
+
+            <ImageView
+                android:id="@+id/upload_image"
+                android:elevation="5dp"
+                android:contentDescription="@string/choose_your_currency"
+                android:layout_below="@+id/currency_symbol_button"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:clickable="true" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/trip_name"
+                android:elevation="5dp"
+                android:textColor="#5697ff"
+                android:textStyle="bold"
+                android:gravity="bottom|center_horizontal"
+                android:id="@+id/trip_name_text_awesome"
+                android:layout_above="@id/trip_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

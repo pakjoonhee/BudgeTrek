@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Final Project</string>
+    <string name="dialog_title">Warning!</string>
+    <string name="dialog_content">Cannot proceed, please fill in all information!</string>
+    <string name="false_dates">The chosen dates are false! Please choose again!</string>
+    <string name="image_content">Cannot proceed, please choose an image!</string>
+    <string name="positive_button">OK</string>
+    <string name="plus_sign">+</string>
+    <string name="negative_button">Cancel</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="food">Food</string>
+    <string name="lodging">Lodging</string>
+    <string name="flight">Flight</string>
+    <string name="leisure">Leisure</string>
+    <string name="trip_details">Trip Details</string>
+    <string name="etc">Etc</string>
+    <string name="done">Done</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="country_destination">Country Destination</string>
+    <string name="select_country">Select Country</string>
+    <string name="budget">Budget</string>
+    <string name="travel_widget_icon">Travel Widget Icon</string>
+    <string name="type_icon">Type Icon</string>
+    <string name="travel_lite">TraveLite</string>
+    <string name="budget_name">Budget Name</string>
+    <string name="budget_amount">Budget Amount</string>
+    <string name="trip_name">Trip Name</string>
+    <string name="enter_trip_name">Enter Your Trip Name Here</string>
+    <string name="add_trip">Add Trip</string>
+    <string name="your_budget">Your Budget</string>
+    <string name="total_budget">Total Budget</string>
+    <string name="calculated_budget">Calculated Budget</string>
+    <string name="dollar_sign">$</string>
+    <string name="budget_type">Image of your Budget Type</string>
+    <string name="minus_sign">Minus Sign</string>
+    <string name="storage_permission">Please Enable Storage Permission.</string>
+    <string name="settings_permission">Please Enable Settings Permission.</string>
+    <string name="country_flag">Country Flag</string>
+    <string name="enter_start_date">Enter the Start Date</string>
+    <string name="enter_end_date">Enter the End Date</string>
+    <string name="choose_flag">Choose the Country Flag</string>
+    <string name="choose_your_currency">Choose your Currency</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+
+</resources>
