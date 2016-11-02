@@ -8,9 +8,8 @@
     <application>
         <provider
             android:name=".data.generated.DatabaseProvider"
-            android:authorities="com.example.joonheepak.finalproject.data.DatabaseProvider"
-            android:exported="true"
-            tools:replace="android:authorities" />
+            android:authorities="@string/content_provider"
+            android:exported="false" />
 
         <activity
             android:name=".free.SplashActivity"

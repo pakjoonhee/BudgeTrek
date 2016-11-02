@@ -26,14 +26,17 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
     }
     productFlavors {
         free {
             applicationId "com.example.joonheepak.finalproject.free"
+            resValue "string", "content_provider", "com.example.joonheepak.finalproject.data.DatabaseProvider"
             signingConfig signingConfigs.config
         }
         paid {
             applicationId "com.example.joonheepak.finalproject.paid"
+            resValue "string", "content_provider", "com.example.joonheepak.finalproject.data.DatabaseProvider1"
             signingConfig signingConfigs.config
         }
     }

@@ -3,8 +3,8 @@
     <application>
         <provider
             android:name=".data.generated.DatabaseProvider"
-            android:authorities="com.example.joonheepak.finalproject.data.DatabaseProvider"
-            android:exported="true" />
+            android:authorities="@string/content_provider"
+            android:exported="false" />
 
     </application>
 
