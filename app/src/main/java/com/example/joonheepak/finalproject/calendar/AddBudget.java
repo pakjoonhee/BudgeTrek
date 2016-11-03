@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.content.OperationApplicationException;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,6 +24,7 @@ import com.example.joonheepak.finalproject.data.DatabaseProvider;
 import com.example.joonheepak.finalproject.data.TripData;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,6 +51,8 @@ public class AddBudget extends Activity {
     String amount;
     RecyclerView recyclerView;
     IconAdapter recyclerViewAdapter;
+    private SharedPreferences settings;
+    private Integer result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +88,7 @@ public class AddBudget extends Activity {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (theImage == null || budgetName.getText().toString().matches("") || budgetAmount.getText().toString().matches("")) {
+                if (theImage == 0 || budgetName.getText().toString().matches("") || budgetAmount.getText().toString().matches("")) {
                     new MaterialDialog.Builder(AddBudget.this)
                             .title(R.string.dialog_title)
                             .content(R.string.dialog_content)
@@ -92,11 +96,17 @@ public class AddBudget extends Activity {
                             .negativeText(R.string.negative_button)
                             .show();
                 } else {
-                    SharedPreferences settings = getSharedPreferences("theIcon", MODE_PRIVATE);
-                    if (settings.getInt("theIcon", 0) < 0) {
-                        return;
-                    } else {
-                        theImage = settings.getInt("theIcon", 0);
+
+                    try {
+                        if (new AsyncHttpTask().execute().get() == 0) {
+                            theImage = R.drawable.etc_icon;
+                        } else {
+                            theImage = result;
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
                     }
                     Intent intent = new Intent(AddBudget.this, RightSideFragment.class);
                     String userValue = budgetAmount.getText().toString();
@@ -122,4 +132,20 @@ public class AddBudget extends Activity {
             }
         });
     }
+    public class AsyncHttpTask extends AsyncTask<Void, Void, Integer> {
+
+        @Override
+        protected Integer doInBackground(Void...voids) {
+
+            settings = getSharedPreferences("theIcon", MODE_PRIVATE);
+            result = settings.getInt("theIcon", 0);
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(Integer result) {
+            super.onPostExecute(result);
+        }
+    }
+
 }
