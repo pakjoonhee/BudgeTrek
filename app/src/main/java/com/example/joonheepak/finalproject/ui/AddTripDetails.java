@@ -16,6 +16,7 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.RemoteException;
@@ -438,7 +439,6 @@ public class AddTripDetails extends AppCompatActivity {
                         dateStart = theMonthCheck + "/" + theDayCheck + "/" + theYear;
                         dateCheckFormat1 = theYear + "/" + theMonthCheck + "/" + theDayCheck;
                         dateCheck2 = validateDate(dateCheckFormat1);
-                        boolean blah = dateCheck2;
                         dateStartText.setText(dateStart);
                     }
                 })
@@ -458,7 +458,6 @@ public class AddTripDetails extends AppCompatActivity {
                         dateEnd = theMonthCheck + "/" + theDayCheck + "/" + theYear;
                         dateCheckFormat2 = theYear + "/" + theMonthCheck + "/" + theDayCheck;
                         dateCheck3 = validateDate(dateCheckFormat2);
-                        boolean blah = dateCheck3;
                         dateEndText.setText(dateEnd);
                     }
                 })
@@ -508,6 +507,14 @@ public class AddTripDetails extends AppCompatActivity {
             }
 
         });
+    }
+
+    public class AsyncHttpTask extends AsyncTask<String, Void, Integer> {
+
+        @Override
+        protected Integer doInBackground(String... strings) {
+            return 0;
+        }
     }
 
 }
