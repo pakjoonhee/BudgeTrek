@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@drawable/border"
-        android:elevation="4dp"
+        android:elevation="@dimen/elevation"
 
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
@@ -24,8 +24,8 @@
             android:text="@string/your_budget"
             android:textStyle="bold"
             android:layout_gravity="center"
-            android:textSize="20sp"
-            android:textColor="#5697ff"
+            android:textSize="@dimen/text_size_20"
+            android:textColor="@color/main_blue_color"
             android:fontFamily="Roboto-Thin"/>
 
     </android.support.v7.widget.Toolbar>
@@ -39,7 +39,7 @@
 
         <fragment
             android:layout_height="wrap_content"
-            android:layout_width="60dp"
+            android:layout_width="@dimen/width_60"
             class="com.example.joonheepak.finalproject.calendar.LeftSideFragment"
             android:id="@+id/fragment1"/>
 

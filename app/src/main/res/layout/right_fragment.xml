@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/width_50"
             android:id="@+id/firstTextviews"
             android:layout_weight="1"
             android:orientation="vertical"
@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/total_budget"
-                android:textSize="17sp"
+                android:textSize="@dimen/text_size_17"
                 android:layout_gravity="center"
                 android:gravity="bottom|center_horizontal"
                 android:textColor="#ffffff"/>
@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="17sp"
+                android:textSize="@dimen/text_size_17"
                 android:gravity="bottom|center_horizontal"
                 android:layout_gravity="center"
                 android:id="@+id/first_budget"
@@ -43,7 +43,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/width_50"
             android:id="@+id/secondTextviews"
             android:orientation="vertical"
             android:layout_weight="1"
@@ -52,11 +52,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="17sp"
+                android:textSize="@dimen/text_size_17"
                 android:layout_gravity="center"
                 android:gravity="bottom|center_horizontal"
                 android:text="@string/calculated_budget"
-                android:textColor="#ffffff"/>
+                android:textColor="@color/white_color"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,14 +69,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/budget_currency_right"
-                    android:textColor="#ffffff"
-                    android:textSize="17sp" />
+                    android:textColor="@color/white_color"
+                    android:textSize="@dimen/text_size_17" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/text_size_17"
                     android:id="@+id/calculated_budget"
-                    android:textColor="#ffffff"/>
+                    android:textColor="@color/white_color"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -89,8 +89,8 @@
         android:src="@drawable/plus_sign"
         android:id="@+id/floating_action"
         android:layout_above="@id/adView"
-        android:layout_marginRight="5dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginRight="@dimen/margin_5"
+        android:layout_marginEnd="@dimen/margin_5"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"/>
 

@@ -4,8 +4,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/icon_layout"
-    android:layout_marginRight="15dp"
-    android:layout_marginBottom="20dp"
+    android:layout_marginRight="@dimen/margin_15"
+    android:layout_marginBottom="@dimen/margin_20"
     android:background="@drawable/highlight">
 
     <ImageView
@@ -20,6 +20,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/icon_description"
         android:gravity="center"
-        android:textSize="15sp" />
+        android:textSize="@dimen/text_size_15" />
 
 </LinearLayout>

@@ -2,12 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_height="wrap_content" android:id="@+id/second_relative"
-    android:layout_marginTop="20dp"
-    android:layout_marginBottom="20dp">
+    android:layout_marginTop="@dimen/margin_20"
+    android:layout_marginBottom="@dimen/margin_20">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_size_20"
         android:gravity="center"
         android:id="@+id/the_day" />
 
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/the_month"
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_size_20"
         android:layout_below="@id/the_day"/>
 
 </RelativeLayout>
