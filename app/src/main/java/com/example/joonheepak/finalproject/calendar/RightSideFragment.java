@@ -148,7 +148,7 @@ public class RightSideFragment extends android.support.v4.app.Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
-                Toast.makeText(getActivity(), "it worked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.it_worked, Toast.LENGTH_SHORT).show();
                 SchematicCheck();
                 mainCursor.moveToLast();
                 specificBudgetName = mainCursor.getString(mainCursor.getColumnIndex("specificbudget"));

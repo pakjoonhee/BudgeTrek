@@ -42,6 +42,8 @@
     <string name="enter_end_date">Enter the End Date</string>
     <string name="choose_flag">Choose the Country Flag</string>
     <string name="choose_your_currency">Choose your Currency</string>
+    <string name="it_worked">It worked</string>
+    <string name="upload_image">Click on the picture at the bottom to choose an image.</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 
 </resources>

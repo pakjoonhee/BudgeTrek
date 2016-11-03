@@ -144,10 +144,6 @@ public class AddTripDetails extends AppCompatActivity {
                             Currency currencySymbol1 = Currency.getInstance(getCurrencySymbol(code));
                             currencySymbol2 = currencySymbol1.getSymbol();
                             currencySymbolButton.setText(currencySymbol2);
-                            SharedPreferences settings = getSharedPreferences("theCountry", MODE_PRIVATE);
-                            SharedPreferences.Editor editor = settings.edit();
-                            editor.putString("countryCode", code);
-                            editor.apply();
                         }
 
 
@@ -183,7 +179,7 @@ public class AddTripDetails extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                if (countryFlagImage == null || theBackgroundImage == null || editTripName.getText().toString().matches("") || dateStartText == null ||
+                if (countryFlagImage == null || editTripName.getText().toString().matches("") || dateStartText == null ||
                         dateEndText == null || budgetEdit.getText().toString().matches("") || currencySymbol2 == null) {
                     new MaterialDialog.Builder(mContext)
                             .title(R.string.dialog_title)
@@ -199,16 +195,17 @@ public class AddTripDetails extends AppCompatActivity {
                             .negativeText(R.string.negative_button)
                             .show();
 
+                } else if (theBackgroundImage == null) {
+                    new MaterialDialog.Builder(mContext)
+                            .title(R.string.dialog_title)
+                            .content(R.string.upload_image)
+                            .positiveText(R.string.positive_button)
+                            .negativeText(R.string.negative_button)
+                            .show();
                 } else {
-                    SharedPreferences settings = getSharedPreferences("theCountry", MODE_PRIVATE);
-                    if (settings.getString("countryCode", null) == null) {
-                        return;
-                    } else {
-                        String code = settings.getString("countryCode", null);
-                        String userValue = budgetEdit.getText().toString();
-                        amount = String.valueOf(Math.round(Double.parseDouble(userValue) * 100)/100.0);
-                    }
 
+                    String userValue = budgetEdit.getText().toString();
+                    amount = String.valueOf(Math.round(Double.parseDouble(userValue) * 100)/100.0);
                     Intent backToMain = new Intent(AddTripDetails.this, MainActivity.class);
                     ContentValues values = new ContentValues();
                     ArrayList<ContentProviderOperation> operations = new ArrayList<ContentProviderOperation>();;
