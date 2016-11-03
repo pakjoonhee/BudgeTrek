@@ -15,7 +15,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
 
-        <android.support.design.widget.TextInputLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/trip_details"
@@ -25,7 +25,7 @@
             android:textColor="#5697ff"
             android:fontFamily="Roboto-Thin"/>
 
-        <android.support.design.widget.TextInputLayout
+        <TextView
             android:id="@+id/done"
             android:text="@string/done"
             android:textSize="15sp"

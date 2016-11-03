@@ -23,10 +23,12 @@ import com.example.joonheepak.finalproject.R;
 import com.example.joonheepak.finalproject.data.CalendarColumns;
 import com.example.joonheepak.finalproject.data.DatabaseProvider;
 import com.example.joonheepak.finalproject.data.TripData;
+import com.example.joonheepak.finalproject.utlity.ImageConvert;
 import com.example.joonheepak.finalproject.utlity.SimpleDividerItemDecoration;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.formats.NativeAd;
 
 import org.w3c.dom.Text;
 
@@ -98,7 +100,7 @@ public class RightSideFragment extends android.support.v4.app.Fragment {
 
         Double tripBudget2 = Double.valueOf(intent.getStringExtra("budget"));
         currencySymbol = intent.getStringExtra("currencysymbol");
-        totalBudget.setText(currencySymbol + " " + String.format("%.2f", tripBudget2));
+        totalBudget.setText(currencySymbol + " " + ImageConvert.numberFormat(tripBudget2));
         budgetSymbol.setText(currencySymbol + " ");
 
 
@@ -148,7 +150,6 @@ public class RightSideFragment extends android.support.v4.app.Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
-                Toast.makeText(getActivity(), R.string.it_worked, Toast.LENGTH_SHORT).show();
                 SchematicCheck();
                 mainCursor.moveToLast();
                 specificBudgetName = mainCursor.getString(mainCursor.getColumnIndex("specificbudget"));
@@ -160,7 +161,7 @@ public class RightSideFragment extends android.support.v4.app.Fragment {
                 for(Double d : budgetList)
                     sum += d;
                 listSum = sum;
-                calculatedBudget.setText(String.format("%.2f", listSum));
+                calculatedBudget.setText(ImageConvert.numberFormat(listSum));
 
                 TripData budgetInfo = new TripData();
                 budgetInfo.setSpecificBudgetName(specificBudgetName);
@@ -213,7 +214,7 @@ public class RightSideFragment extends android.support.v4.app.Fragment {
         for(Double d : budgetList)
             sum += d;
         listSum = sum;
-        calculatedBudget.setText(String.format("%.2f", listSum));
+        calculatedBudget.setText(ImageConvert.numberFormat(listSum));
 
     }
 

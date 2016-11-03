@@ -66,7 +66,7 @@ public class MainViewAdapter extends RecyclerView.Adapter<MainViewHolder> {
         final String tripEnd = cursor.getString(cursor.getColumnIndex("enddate"));
         final String currencySymbol = cursor.getString(cursor.getColumnIndex("currencysymbol"));
         Double budget2 = Double.valueOf(cursor.getString(cursor.getColumnIndex("budget")));
-        final String budget = String.format("%.2f", budget2);
+        final String budget = ImageConvert.numberFormat(budget2);
 //        holder.minusSign.setVisibility(View.INVISIBLE);
         holder.tripName.setText(tripName);
         holder.tripDates.setText(tripStart + " - " + tripEnd);

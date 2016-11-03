@@ -21,5 +21,7 @@ public class ImageConvert {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
 
-
+    public static String numberFormat(Double theDouble) {
+        return String.format("%.2f", theDouble);
+    }
 }

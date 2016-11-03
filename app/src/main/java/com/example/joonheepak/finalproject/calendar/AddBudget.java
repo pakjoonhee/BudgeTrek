@@ -22,6 +22,7 @@ import com.example.joonheepak.finalproject.R;
 import com.example.joonheepak.finalproject.data.CalendarColumns;
 import com.example.joonheepak.finalproject.data.DatabaseProvider;
 import com.example.joonheepak.finalproject.data.TripData;
+import com.example.joonheepak.finalproject.utlity.ImageConvert;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
@@ -111,7 +112,7 @@ public class AddBudget extends Activity {
                     Intent intent = new Intent(AddBudget.this, RightSideFragment.class);
                     String userValue = budgetAmount.getText().toString();
                     Double doubleRound = Math.round(Double.parseDouble(userValue) * 100)/100.0;
-                    amount = String.format("%.2f", doubleRound);
+                    amount = ImageConvert.numberFormat(doubleRound);
                     values.put(CalendarColumns.Icon, theImage);
                     values.put(CalendarColumns.Trip_Name, tripName);
                     values.put(CalendarColumns.Budget, tripBudget);

@@ -7,6 +7,7 @@ package com.example.joonheepak.finalproject.calendar;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.media.Image;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -23,6 +24,7 @@ import com.example.joonheepak.finalproject.data.CalendarColumns;
 import com.example.joonheepak.finalproject.data.DatabaseProvider;
 import com.example.joonheepak.finalproject.data.TripData;
 import com.example.joonheepak.finalproject.data.generated.Database;
+import com.example.joonheepak.finalproject.utlity.ImageConvert;
 
 import org.w3c.dom.Text;
 
@@ -94,7 +96,7 @@ public class BudgetAdapter extends RecyclerView.Adapter<BudgetAdapter.ViewHolder
         String theBudgetName = tripInfo.getSpecificBudgetAmount();
         Double theBudgetAmount = Double.valueOf(tripInfo.getSpecificBudgetName());
         //naming errors go way back...
-        String theBudgetAmount2 = String.format("%.2f", theBudgetAmount);
+        String theBudgetAmount2 = ImageConvert.numberFormat(theBudgetAmount);
         String theBudgetId = tripInfo.getBudgetID();
         budgetIDArray.add(theBudgetId);
         Integer theBudgetImage = tripInfo.getBudgetImage();
