@@ -12,10 +12,10 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 android {
     signingConfigs {
         config {
-            keyAlias 'udacity'
-            keyPassword 'password'
-            storeFile file('/Users/joonheepak/Desktop/FinalProject-master/keystore2.jks')
-            storePassword 'password'
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
         }
     }
     compileSdkVersion 24
