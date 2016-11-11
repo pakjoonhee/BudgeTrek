@@ -28,13 +28,13 @@ import java.util.ArrayList;
 
 
 public class MainViewAdapter extends RecyclerView.Adapter<MainViewHolder> {
-    ArrayList<TripData> tripData;
-    Context context;
-    Resources resources;
-    ArrayList<String> tripIDArray = new ArrayList<String>();
-    String SQLPosition;
-    Cursor cursor;
-    TextView minusTripButton;
+
+    private Context context;
+    private Resources resources;
+    private ArrayList<String> tripIDArray = new ArrayList<String>();
+    private String SQLPosition;
+    private Cursor cursor;
+    private TextView minusTripButton;
 
     public MainViewAdapter(Context context, Resources resources, Cursor cursor, TextView minusTripButton){
 
