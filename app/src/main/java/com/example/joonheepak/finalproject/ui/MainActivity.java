@@ -22,18 +22,11 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.joonheepak.finalproject.R;
 import com.example.joonheepak.finalproject.data.DatabaseColumns;
 import com.example.joonheepak.finalproject.data.DatabaseProvider;
-import com.example.joonheepak.finalproject.data.TripData;
-import com.example.joonheepak.finalproject.utlity.MyApplication;
 import com.example.joonheepak.finalproject.widget.CollectionWidget;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
 import net.danlew.android.joda.JodaTimeAndroid;
