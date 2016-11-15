@@ -69,16 +69,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        MyApplication application = (MyApplication) getApplication();
-//        mTracker = application.getDefaultTracker();
-//        Log.i("New", "Setting screen name: " + "MainActivity");
-//        mTracker.setScreenName("Image~" + "MainActivity");
-//        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
 
         analytics = GoogleAnalytics.getInstance(this);
         analytics.setLocalDispatchPeriod(1800);
 
-        tracker = analytics.newTracker("UA-86045128-1"); // Replace with actual tracker id
+        tracker = analytics.newTracker("UA-86045128-1");
         tracker.enableExceptionReporting(true);
         tracker.enableAdvertisingIdCollection(true);
         tracker.enableAutoActivityTracking(true);
