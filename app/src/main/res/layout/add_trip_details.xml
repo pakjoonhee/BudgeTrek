@@ -51,6 +51,16 @@
             android:orientation="vertical"
             android:layout_width="fill_parent">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/main_blue_color"
+                android:textStyle="bold"
+                android:gravity="bottom|center_horizontal"
+                android:id="@+id/trip_name_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_10"/>
 
             <EditText
                 android:id="@+id/trip_name"
@@ -59,9 +69,9 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:textSize="@dimen/text_size_20"
+                android:layout_below="@+id/trip_name_text"
                 android:gravity="bottom|center_horizontal"
                 android:textColor="@color/main_blue_color"
-                android:layout_marginTop="@dimen/margin_20"
                 android:background="@color/white_color"
                 android:layout_centerHorizontal="true"/>
 
@@ -157,13 +167,14 @@
                 android:layout_marginTop="@dimen/margin_10"
                 android:layout_marginBottom="@dimen/margin_10"/>
 
-            <Button
+            <TextView
                 android:text="@string/select_country"
                 android:layout_below="@id/select_country_text"
                 android:background="@color/white_color"
+                android:gravity="bottom|center_horizontal"
+                android:textSize="25sp"
                 android:layout_width="@dimen/edit_text_widgth"
                 android:layout_height="@dimen/add_trip_height"
-                android:textStyle="bold"
                 android:textColor="@color/main_blue_color"
                 android:onClick="onClickFlag"
                 android:layout_centerInParent="true"
@@ -173,7 +184,6 @@
                 android:id="@+id/flag_image_button"
                 android:layout_below="@id/select_country_text"
                 android:layout_width="@dimen/width_50"
-                android:elevation="@dimen/elevation"
                 android:layout_height="@dimen/add_trip_height"
                 android:contentDescription="@string/choose_flag"
                 android:onClick="onClickFlag"
@@ -209,7 +219,6 @@
             <Button
                 android:id="@+id/currency_symbol_button"
                 android:layout_below="@id/budget_text"
-                android:elevation="@dimen/elevation"
                 android:layout_width="@dimen/width_50"
                 android:layout_height="@dimen/add_trip_height"
                 android:textColor="@color/main_blue_color"
@@ -221,7 +230,6 @@
 
             <ImageView
                 android:id="@+id/upload_image"
-                android:elevation="@dimen/elevation"
                 android:contentDescription="@string/choose_your_currency"
                 android:layout_below="@+id/currency_symbol_button"
                 android:layout_centerHorizontal="true"
@@ -235,7 +243,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/trip_name"
-                android:elevation="@dimen/elevation"
                 android:textColor="@color/main_blue_color"
                 android:textStyle="bold"
                 android:gravity="bottom|center_horizontal"

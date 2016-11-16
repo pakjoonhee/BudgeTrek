@@ -70,7 +70,7 @@ public class AddTripDetails extends AppCompatActivity {
     @BindView(R.id.dateStartText) TextView dateStartText;
     @BindView(R.id.dateEndText) TextView dateEndText;
     @BindView(R.id.trip_name_text_awesome) TextView dateStuff;
-    @BindView(R.id.flag_button) Button flagButton;
+    @BindView(R.id.flag_button) TextView flagButton;
     @BindView(R.id.flag_image_button) ImageButton flagIcon;
     @BindView(R.id.currency_symbol_button) Button currencySymbolButton;
     @BindView(R.id.trip_name) EditText editTripName;
