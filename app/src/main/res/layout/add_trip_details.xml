@@ -10,7 +10,7 @@
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@drawable/border"
+        android:background="@color/white_color"
         android:elevation="@dimen/elevation"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
@@ -44,7 +44,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white_color">
+        android:background="#f2f4f7">
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_height="fill_parent"
@@ -59,11 +59,10 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:textSize="@dimen/text_size_20"
-                android:elevation="@dimen/elevation"
                 android:gravity="bottom|center_horizontal"
                 android:textColor="@color/main_blue_color"
                 android:layout_marginTop="@dimen/margin_20"
-                android:background="@drawable/border"
+                android:background="@color/white_color"
                 android:layout_centerHorizontal="true"/>
 
 
@@ -71,7 +70,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/start_date"
-                android:elevation="@dimen/elevation"
                 android:textColor="@color/main_blue_color"
                 android:textStyle="bold"
                 android:gravity="bottom|center_horizontal"
@@ -86,13 +84,12 @@
                 android:id="@+id/dateStartText"
                 android:layout_width="@dimen/edit_text_widgth"
                 android:layout_height="@dimen/add_trip_height"
-                android:elevation="@dimen/elevation"
                 android:textSize="@dimen/text_size_20"
                 android:textColor="@color/main_blue_color"
                 android:gravity="bottom|center_horizontal"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/trip_start_text"
-                android:background="@drawable/border"
+                android:background="@color/white_color"
                 android:onClick="onClickDates1"
                 />
 
@@ -102,7 +99,6 @@
                 android:id="@+id/start_date_button"
                 android:layout_width="@dimen/add_trip_height"
                 android:contentDescription="@string/enter_start_date"
-                android:elevation="@dimen/elevation"
                 android:layout_height="@dimen/add_trip_height"
                 android:background="@drawable/border"
                 android:layout_toLeftOf="@id/dateStartText"
@@ -114,7 +110,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/end_date"
-                android:elevation="@dimen/elevation"
                 android:textStyle="bold"
                 android:textColor="@color/main_blue_color"
                 android:id="@+id/trip_end_text"
@@ -129,20 +124,18 @@
                 android:id="@+id/dateEndText"
                 android:textSize="@dimen/text_size_20"
                 android:textColor="@color/main_blue_color"
-                android:elevation="@dimen/elevation"
                 android:gravity="bottom|center_horizontal"
                 android:layout_below="@id/trip_end_text"
                 android:layout_width="@dimen/edit_text_widgth"
                 android:layout_height="@dimen/add_trip_height"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/border"
+                android:background="@color/white_color"
                 android:onClick="onClickDates2"/>
 
             <ImageButton
 
                 android:layout_below="@id/trip_end_text"
                 android:id="@+id/end_date_button"
-                android:elevation="@dimen/elevation"
                 android:contentDescription="@string/enter_start_date"
                 android:layout_toLeftOf="@id/dateEndText"
                 android:layout_toStartOf="@id/dateEndText"
@@ -167,7 +160,7 @@
             <Button
                 android:text="@string/select_country"
                 android:layout_below="@id/select_country_text"
-                android:background="@drawable/border"
+                android:background="@color/white_color"
                 android:layout_width="@dimen/edit_text_widgth"
                 android:layout_height="@dimen/add_trip_height"
                 android:textStyle="bold"
@@ -207,12 +200,11 @@
                 android:layout_height="@dimen/add_trip_height"
                 android:layout_centerInParent="true"
                 android:id="@+id/currency_edit"
-                android:elevation="@dimen/elevation"
                 android:textColor="@color/main_blue_color"
                 android:inputType="numberDecimal"
                 android:gravity="center_horizontal|bottom"
                 android:maxLines="1"
-                android:background="@drawable/border"/>
+                android:background="@color/white_color"/>
 
             <Button
                 android:id="@+id/currency_symbol_button"
