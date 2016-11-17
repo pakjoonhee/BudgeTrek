@@ -10,7 +10,7 @@
     </style>
 
     <style name="splashScreenTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/mountain_image</item>
+        <item name="android:windowBackground">@drawable/travelitesplash</item>
     </style>
     
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
