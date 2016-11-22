@@ -8,8 +8,6 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -25,10 +23,7 @@ import com.example.joonheepak.finalproject.data.DatabaseProvider;
 import com.example.joonheepak.finalproject.data.TripData;
 import com.example.joonheepak.finalproject.utlity.ImageConvert;
 import com.example.joonheepak.finalproject.utlity.SimpleDividerItemDecoration;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.formats.NativeAd;
+
 
 import org.w3c.dom.Text;
 
