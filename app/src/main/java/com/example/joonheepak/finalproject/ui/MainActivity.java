@@ -31,10 +31,6 @@ import com.google.android.gms.analytics.Tracker;
 
 import net.danlew.android.joda.JodaTimeAndroid;
 
-import java.util.ArrayList;
-
-import static android.R.attr.name;
-
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>{
 
     RecyclerView.Adapter recyclerViewAdapter;
