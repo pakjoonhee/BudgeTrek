@@ -98,7 +98,6 @@ public class AddTripDetails extends AppCompatActivity {
     private static int RESULT_LOAD_IMAGE = 3;
     private String dateStart;
     private String dateEnd;
-    private String dateParse;
     boolean dateCheck2;
     private String theMonthCheck;
     private String theDayCheck;
