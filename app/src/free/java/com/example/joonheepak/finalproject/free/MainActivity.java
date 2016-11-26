@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.LoaderManager;
@@ -15,17 +18,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.joonheepak.finalproject.R;
+import com.example.joonheepak.finalproject.calendar.*;
 import com.example.joonheepak.finalproject.data.DatabaseColumns;
 import com.example.joonheepak.finalproject.data.DatabaseProvider;
 import com.example.joonheepak.finalproject.data.TripData;
 import com.example.joonheepak.finalproject.ui.*;
+import com.example.joonheepak.finalproject.utlity.ImageConvert;
 import com.example.joonheepak.finalproject.utlity.MyApplication;
 import com.example.joonheepak.finalproject.widget.CollectionWidget;
 import com.google.android.gms.ads.AdRequest;
@@ -45,21 +52,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     RecyclerView.Adapter recyclerViewAdapter;
     Context context;
-    private Tracker mTracker;
     TextView addTripButton;
-    TextView minusTripButton;
     public static GoogleAnalytics analytics;
     public static Tracker tracker;
+    private String theStuff;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
-
         setContentView(R.layout.activity_main);
         JodaTimeAndroid.init(this);
-
+        theStuff = "blah";
 
         addTripButton = (TextView) findViewById(R.id.add_trip_button);
         addTripButton.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             recyclerView.addItemDecoration(new MarginDecoration(this));
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-            recyclerViewAdapter = new com.example.joonheepak.finalproject.ui.MainViewAdapter(context, resources, cursor, minusTripButton);
+            recyclerViewAdapter = new MainViewAdapter(context, resources, cursor);
             recyclerView.setAdapter(recyclerViewAdapter);
         } else if (cursor == null) {
             return;
@@ -122,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             recyclerView.addItemDecoration(new MarginDecoration(this));
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-            recyclerViewAdapter = new com.example.joonheepak.finalproject.ui.MainViewAdapter(context, resources, cursor, minusTripButton);
+            recyclerViewAdapter = new MainViewAdapter(context, resources, cursor);
             recyclerView.setAdapter(recyclerViewAdapter);
         }
         ComponentName name = new ComponentName(this, CollectionWidget.class);
@@ -137,6 +142,96 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
+
+    }
+
+    public class MainViewAdapter extends RecyclerView.Adapter<MainViewHolder> {
+
+        private Context context;
+        private Resources resources;
+        private ArrayList<String> tripIDArray = new ArrayList<String>();
+        private String SQLPosition;
+        private Cursor cursor;
+
+        public MainViewAdapter(Context context, Resources resources, Cursor cursor){
+
+            this.context = context;
+            this.resources = resources;
+            this.cursor = cursor;
+
+        }
+
+        @Override
+        public MainViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.trip_content, parent, false);
+            if (theStuff == "blah") {
+
+            } else {
+                String blah = "yay";
+            }
+            return new MainViewHolder(view);
+
+        }
+
+        @Override
+        public void onBindViewHolder(final MainViewHolder holder, final int position) {
+
+            cursor.moveToPosition(position);
+            tripIDArray.add(cursor.getString(cursor.getColumnIndex("_id")));
+            Bitmap countryFlag = ImageConvert.getImage(cursor.getBlob(cursor.getColumnIndex("countryflag")));
+            Bitmap backgroundImage = ImageConvert.getImage(cursor.getBlob(cursor.getColumnIndex("backgroundimage")));
+            Drawable finalBackground = new BitmapDrawable(resources, backgroundImage);
+            final String tripName = cursor.getString(cursor.getColumnIndex("tripname"));
+            final String tripStart = cursor.getString(cursor.getColumnIndex("startdate"));
+            final String tripEnd = cursor.getString(cursor.getColumnIndex("enddate"));
+            final String currencySymbol = cursor.getString(cursor.getColumnIndex("currencysymbol"));
+            Double budget2 = Double.valueOf(cursor.getString(cursor.getColumnIndex("budget")));
+            final String budget = ImageConvert.numberFormat(budget2);
+//        holder.minusSign.setVisibility(View.INVISIBLE);
+            holder.tripName.setText(tripName);
+            holder.tripDates.setText(tripStart + " - " + tripEnd);
+            holder.budget.setText(currencySymbol + " " + budget);
+            holder.countryFlag.setImageBitmap(countryFlag);
+            holder.backgroundImage.setBackground(finalBackground);
+            holder.backgroundImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent twoFragmentIntent = new Intent(context, com.example.joonheepak.finalproject.calendar.TwoFragmentsCalendar.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    twoFragmentIntent.putExtra("tripname", tripName);
+                    twoFragmentIntent.putExtra("tripstart", tripStart);
+                    twoFragmentIntent.putExtra("tripend", tripEnd);
+                    twoFragmentIntent.putExtra("budget", budget);
+                    twoFragmentIntent.putExtra("currencysymbol", currencySymbol);
+                    context.startActivity(twoFragmentIntent);
+                }
+            });
+
+            holder.minusSign.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    removeAt(position);
+
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return cursor.getCount();
+
+        }
+
+        public void removeAt(int position) {
+
+            SQLPosition = tripIDArray.get(position);
+            tripIDArray.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, tripIDArray.size());
+            String[] budgetIdArray = {SQLPosition};
+            context.getContentResolver().delete(DatabaseProvider.Trips.CONTENT_URI, "_id=?", budgetIdArray);
+
+        }
 
     }
 }
