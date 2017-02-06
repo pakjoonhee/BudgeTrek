@@ -83,19 +83,29 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             />
 
-
+    </android.support.design.widget.CoordinatorLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/white_minus_sign"
+            android:layout_gravity="right|end"
+            app:backgroundTint="@color/light_blue_100"
+            android:id="@+id/fab"
+            />
         <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
             android:layout_gravity="center|bottom"
             ads:adSize="BANNER"
             ads:adUnitId="@string/banner_ad_unit_id">
         </com.google.android.gms.ads.AdView>
-
-    </android.support.design.widget.CoordinatorLayout>
+    </LinearLayout>
 
 
 

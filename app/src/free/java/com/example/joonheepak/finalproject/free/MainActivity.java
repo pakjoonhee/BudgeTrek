@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             final String currencySymbol = cursor.getString(cursor.getColumnIndex("currencysymbol"));
             Double budget2 = Double.valueOf(cursor.getString(cursor.getColumnIndex("budget")));
             final String budget = ImageConvert.numberFormat(budget2);
-//        holder.minusSign.setVisibility(View.INVISIBLE);
+            holder.minusSign.setVisibility(View.INVISIBLE);
             holder.tripName.setText(tripName);
             holder.tripDates.setText(tripStart + " - " + tripEnd);
             holder.budget.setText(currencySymbol + " " + budget);
