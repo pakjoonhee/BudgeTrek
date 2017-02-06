@@ -89,14 +89,31 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
-        <android.support.design.widget.FloatingActionButton
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/white_minus_sign"
             android:layout_gravity="right|end"
-            app:backgroundTint="@color/light_blue_100"
-            android:id="@+id/fab"
-            />
+            android:paddingBottom="5dp"
+            android:orientation="horizontal">
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/white_minus_sign"
+                app:backgroundTint="@color/light_blue_100"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                app:elevation="0dp"
+                android:id="@+id/fab_minus"
+                />
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/white_plus_sign"
+                app:backgroundTint="@color/light_blue_100"
+                app:elevation="0dp"
+                android:id="@+id/fab_plus"
+                />
+        </LinearLayout>
         <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
             android:layout_width="wrap_content"
