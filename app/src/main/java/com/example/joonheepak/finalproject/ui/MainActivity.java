@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     TextView minusTripButton;
     public static GoogleAnalytics analytics;
     public static Tracker tracker;
+    public FloatingActionButton fabPlus;
 
 
     @Override
@@ -60,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         JodaTimeAndroid.init(this);
 
 
-        addTripButton = (TextView) findViewById(R.id.add_trip_button);
-        addTripButton.setOnClickListener(new View.OnClickListener() {
+        fabPlus = (FloatingActionButton) findViewById(R.id.fab_plus);
+        fabPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent tripScreenIntent = new Intent(MainActivity.this, AddTripScreen.class);
@@ -174,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             final String currencySymbol = cursor.getString(cursor.getColumnIndex("currencysymbol"));
             Double budget2 = Double.valueOf(cursor.getString(cursor.getColumnIndex("budget")));
             final String budget = ImageConvert.numberFormat(budget2);
-//        holder.minusSign.setVisibility(View.INVISIBLE);
+            holder.minusSign.setVisibility(View.INVISIBLE);
             holder.tripName.setText(tripName);
             holder.tripDates.setText(tripStart + " - " + tripEnd);
             holder.budget.setText(currencySymbol + " " + budget);

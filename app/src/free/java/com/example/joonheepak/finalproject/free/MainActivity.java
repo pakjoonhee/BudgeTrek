@@ -52,10 +52,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     RecyclerView.Adapter recyclerViewAdapter;
     Context context;
-    TextView addTripButton;
     public static GoogleAnalytics analytics;
     public static Tracker tracker;
-    private String theStuff;
+    public FloatingActionButton fabPlus;
 
 
     @Override
@@ -63,11 +62,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.activity_main);
-        JodaTimeAndroid.init(this);
-        theStuff = "blah";
 
-        addTripButton = (TextView) findViewById(R.id.add_trip_button);
-        addTripButton.setOnClickListener(new View.OnClickListener() {
+        Intent intent = getIntent();
+        if (intent.getStringExtra("id") == null) {
+
+        } else {
+            String positionID = intent.getStringExtra("id");
+            String[] positionIDArray = {positionID};
+            getContentResolver().delete(DatabaseProvider.Trips.CONTENT_URI, "_id=?", positionIDArray);
+        }
+
+
+        JodaTimeAndroid.init(this);
+        fabPlus = (FloatingActionButton) findViewById(R.id.fab_plus);
+        fabPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent tripScreenIntent = new Intent(MainActivity.this, AddTripScreen.class);
@@ -165,11 +173,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         public MainViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.trip_content, parent, false);
-            if (theStuff == "blah") {
 
-            } else {
-                String blah = "yay";
-            }
             return new MainViewHolder(view);
 
         }
