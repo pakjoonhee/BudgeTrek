@@ -167,6 +167,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             Bitmap countryFlag = ImageConvert.getImage(cursor.getBlob(cursor.getColumnIndex("countryflag")));
             Bitmap backgroundImage = ImageConvert.getImage(cursor.getBlob(cursor.getColumnIndex("backgroundimage")));
             Drawable finalBackground = new BitmapDrawable(resources, backgroundImage);
+            final String positionID = cursor.getString(cursor.getColumnIndex("_id"));
             final String tripName = cursor.getString(cursor.getColumnIndex("tripname"));
             final String tripStart = cursor.getString(cursor.getColumnIndex("startdate"));
             final String tripEnd = cursor.getString(cursor.getColumnIndex("enddate"));
@@ -183,6 +184,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 @Override
                 public void onClick(View view) {
                     Intent twoFragmentIntent = new Intent(context, TwoFragmentsCalendar.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    twoFragmentIntent.putExtra("id", positionID);
                     twoFragmentIntent.putExtra("tripname", tripName);
                     twoFragmentIntent.putExtra("tripstart", tripStart);
                     twoFragmentIntent.putExtra("tripend", tripEnd);

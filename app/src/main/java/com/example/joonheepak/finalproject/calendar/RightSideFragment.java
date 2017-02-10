@@ -210,7 +210,6 @@ public class RightSideFragment extends android.support.v4.app.Fragment {
             sum += d;
         listSum = sum;
         calculatedBudget.setText(ImageConvert.numberFormat(listSum));
-
     }
 
     public ArrayList<TripData> RetrieveData() {

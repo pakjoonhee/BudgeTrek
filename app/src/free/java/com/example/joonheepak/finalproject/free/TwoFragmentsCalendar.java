@@ -3,6 +3,7 @@ package com.example.joonheepak.finalproject.free;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -18,6 +19,8 @@ public class TwoFragmentsCalendar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.both_fragments);
+        Intent intent = getIntent();
+        String positionId = intent.getStringExtra("id");
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment2, new RightSideFragment())
