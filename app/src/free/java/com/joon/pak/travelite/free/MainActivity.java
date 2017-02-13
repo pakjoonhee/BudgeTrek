@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             holder.backgroundImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent twoFragmentIntent = new Intent(context, TwoFragmentsCalendar.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    Intent twoFragmentIntent = new Intent(context, TwoFragmentsCalendarFree.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     twoFragmentIntent.putExtra("id", positionID);
                     twoFragmentIntent.putExtra("tripname", tripName);
                     twoFragmentIntent.putExtra("tripstart", tripStart);

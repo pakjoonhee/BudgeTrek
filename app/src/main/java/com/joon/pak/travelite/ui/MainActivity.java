@@ -52,8 +52,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
-
         setContentView(R.layout.activity_main_paid);
+        Intent intent = getIntent();
+        if (intent.getStringExtra("id") == null) {
+
+        } else {
+            String positionID = intent.getStringExtra("id");
+            String[] positionIDArray = {positionID};
+            getContentResolver().delete(DatabaseProvider.Trips.CONTENT_URI, "_id=?", positionIDArray);
+        }
+
         JodaTimeAndroid.init(this);
 
 

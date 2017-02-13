@@ -55,7 +55,7 @@ public class TwoFragmentsCalendarFree extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.delete) {
-            Intent deleteIntent = new Intent(TwoFragmentsCalendarFree.this, MainActivity.class);
+            Intent deleteIntent = new Intent(TwoFragmentsCalendarFree.this, com.joon.pak.travelite.free.MainActivity.class);
             deleteIntent.putExtra("id", positionId);
             startActivity(deleteIntent);
         }

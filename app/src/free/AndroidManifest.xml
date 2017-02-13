@@ -23,7 +23,7 @@
         </activity>
 
         <activity android:name=".free.MainActivity" />
-        <activity android:name=".free.TwoFragmentsCalendar" />
+        <activity android:name=".free.TwoFragmentsCalendarFree" />
     </application>
 
 </manifest>
