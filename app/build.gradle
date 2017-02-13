@@ -24,8 +24,8 @@ android {
         applicationId "com.joon.pak.travelite"
         minSdkVersion 16
         targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "3.0"
         signingConfig signingConfigs.config
     }
     buildTypes {
