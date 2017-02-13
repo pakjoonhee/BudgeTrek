@@ -93,7 +93,7 @@ public class RightSideFragment extends android.support.v4.app.Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.right_fragment, container, false);
+        rootView = inflater.inflate(R.layout.right_fragment_free, container, false);
         ButterKnife.bind(this, rootView);
         Intent intent = getActivity().getIntent();
         tripName = intent.getStringExtra("tripname");

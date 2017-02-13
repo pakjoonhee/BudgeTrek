@@ -17,36 +17,27 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.joonheepak.finalproject.R;
-import com.example.joonheepak.finalproject.calendar.*;
+import com.example.joonheepak.finalproject.calendar.TwoFragmentsCalendar;
 import com.example.joonheepak.finalproject.data.DatabaseColumns;
 import com.example.joonheepak.finalproject.data.DatabaseProvider;
-import com.example.joonheepak.finalproject.data.TripData;
 import com.example.joonheepak.finalproject.ui.*;
 import com.example.joonheepak.finalproject.utlity.ImageConvert;
-import com.example.joonheepak.finalproject.utlity.MyApplication;
 import com.example.joonheepak.finalproject.widget.CollectionWidget;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
 import net.danlew.android.joda.JodaTimeAndroid;
 
 import java.util.ArrayList;
-
-import static android.R.attr.name;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>{
 
@@ -61,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_free);
 
         Intent intent = getIntent();
         if (intent.getStringExtra("id") == null) {
@@ -202,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             holder.backgroundImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent twoFragmentIntent = new Intent(context, com.example.joonheepak.finalproject.calendar.TwoFragmentsCalendar.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    Intent twoFragmentIntent = new Intent(context, TwoFragmentsCalendar.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     twoFragmentIntent.putExtra("id", positionID);
                     twoFragmentIntent.putExtra("tripname", tripName);
                     twoFragmentIntent.putExtra("tripstart", tripStart);
