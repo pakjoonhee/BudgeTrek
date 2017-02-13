@@ -21,7 +21,7 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
     defaultConfig {
-        applicationId "com.example.joonheepak.finalproject"
+        applicationId "com.joon.pak.travelite"
         minSdkVersion 16
         targetSdkVersion 24
         versionCode 1
@@ -37,13 +37,13 @@ android {
     }
     productFlavors {
         free {
-            applicationId "com.example.joonheepak.finalproject.free"
-            resValue "string", "content_provider", "com.example.joonheepak.finalproject.data.DatabaseProvider"
+            applicationId "com.joon.pak.travelite.free"
+            resValue "string", "content_provider", "com.joon.pak.travelite.data.DatabaseProvider"
             signingConfig signingConfigs.config
         }
         paid {
-            applicationId "com.example.joonheepak.finalproject.paid"
-            resValue "string", "content_provider", "com.example.joonheepak.finalproject.data.DatabaseProvider1"
+            applicationId "com.joon.pak.travelite.paid"
+            resValue "string", "content_provider", "com.joon.pak.travelite.data.DatabaseProvider1"
             signingConfig signingConfigs.config
         }
     }

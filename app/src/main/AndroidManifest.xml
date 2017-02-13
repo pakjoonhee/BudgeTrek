@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.joonheepak.finalproject">
+    package="com.joon.pak.travelite">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -14,12 +14,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bacon"
-        android:name=".utlity.MyApplication">
+        android:name="com.joon.pak.travelite.utlity.MyApplication">
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <activity
-            android:name=".ui.SplashActivity"
+            android:name="com.joon.pak.travelite.ui.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/splashScreenTheme">
             <intent-filter>
@@ -28,16 +28,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MainActivity" />
-        <activity android:name=".ui.AddTripScreen" />
-        <activity android:name=".ui.AddTripDetails" />
-        <activity android:name=".calendar.TwoFragmentsCalendar" />
+        <activity android:name="com.joon.pak.travelite.ui.MainActivity" />
+        <activity android:name="com.joon.pak.travelite.ui.AddTripScreen" />
+        <activity android:name="com.joon.pak.travelite.ui.AddTripDetails" />
+        <activity android:name="com.joon.pak.travelite.calendar.TwoFragmentsCalendar" />
         <activity
             android:name=".ui.WheelScreen"
             android:theme="@style/AppTheme.CustomTheme" />
-        <activity android:name=".calendar.AddBudget" />
+        <activity android:name="com.joon.pak.travelite.calendar.AddBudget" />
 
-        <receiver android:name=".widget.CollectionWidget">
+        <receiver android:name="com.joon.pak.travelite.widget.CollectionWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -68,7 +68,7 @@
         <service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
 
         <service
-            android:name=".widget.WidgetService"
+            android:name="com.joon.pak.travelite.widget.WidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
     </application>

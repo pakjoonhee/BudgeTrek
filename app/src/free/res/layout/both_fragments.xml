@@ -39,7 +39,7 @@
         <fragment
             android:layout_height="wrap_content"
             android:layout_width="@dimen/width_60"
-            class="com.example.joonheepak.finalproject.free.LeftSideFragment"
+            class="com.joon.pak.travelite.free.LeftSideFragment"
             android:id="@+id/fragment1"/>
 
         <FrameLayout

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.joonheepak.finalproject">
+    package="com.joon.pak.travelite">
     <application>
         <provider
             android:name=".data.generated.DatabaseProvider"

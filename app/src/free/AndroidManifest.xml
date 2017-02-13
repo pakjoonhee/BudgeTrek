@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.joonheepak.finalproject">
+    package="com.joon.pak.travelite">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
         <provider
             android:name=".data.generated.DatabaseProvider"
-            android:authorities="@string/content_provider"
+            android:authorities="com.joon.pak.travelite.data.DatabaseProvider"
             android:exported="true" />
 
         <activity
