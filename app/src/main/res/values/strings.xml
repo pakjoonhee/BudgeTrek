@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TraveLite</string>
+    <string name="app_name">BudgeTrek</string>
     <string name="dialog_title">Warning!</string>
     <string name="dialog_content">Cannot proceed, please fill in all information!</string>
     <string name="false_dates">The chosen dates are false! Please choose again!</string>

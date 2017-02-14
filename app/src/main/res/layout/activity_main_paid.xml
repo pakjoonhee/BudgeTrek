@@ -13,7 +13,7 @@
             android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_90"
-            android:background="#ffffff"
+            android:background="#fcfdff"
             app:elevation="@dimen/elevation">
 
             <android.support.design.widget.CollapsingToolbarLayout
@@ -26,7 +26,7 @@
                 <ImageView
                     android:id="@+id/header_logo"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/add_trip_height"
+                    android:layout_height="70dp"
                     android:contentDescription="@string/travel_lite"
                     android:scaleType="centerInside"
                     android:layout_gravity="center"
@@ -79,7 +79,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/white_plus_sign"
-                app:elevation="0dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="@dimen/margin_10"
                 android:id="@+id/fab_plus"
                 />
         </LinearLayout>
