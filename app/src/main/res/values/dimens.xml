@@ -14,7 +14,7 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     -->
     <dimen name="widget_margin">8dp</dimen>
 
-    <dimen name="add_trip_height">40dp</dimen>
+    <dimen name="add_trip_height">70dp</dimen>
     <dimen name="edit_text_widgth">300dp</dimen>
     <dimen name="edit_text_widgth_350">350dp</dimen>
     <dimen name="elevation">5dp</dimen>

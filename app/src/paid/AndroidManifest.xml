@@ -3,7 +3,7 @@
     <application>
         <provider
             android:name=".data.generated.DatabaseProvider"
-            android:authorities="@string/content_provider"
+            android:authorities="${applicationId}.DatabaseProvider"
             android:exported="true" />
 
     </application>

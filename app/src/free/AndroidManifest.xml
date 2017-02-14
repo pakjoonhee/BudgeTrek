@@ -8,7 +8,7 @@
     <application>
         <provider
             android:name=".data.generated.DatabaseProvider"
-            android:authorities="com.joon.pak.travelite.data.DatabaseProvider"
+            android:authorities="${applicationId}.DatabaseProvider1"
             android:exported="true" />
 
         <activity
