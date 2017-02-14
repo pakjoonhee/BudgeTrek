@@ -43,6 +43,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.joon.pak.travelite.R;
 import com.joon.pak.travelite.data.DatabaseColumns;
 import com.joon.pak.travelite.data.DatabaseProvider;
+import com.joon.pak.travelite.ui.MainActivity;
 import com.joon.pak.travelite.utlity.ImageConvert;
 import com.mukesh.countrypicker.fragments.CountryPicker;
 import com.mukesh.countrypicker.interfaces.CountryPickerListener;
@@ -53,6 +54,7 @@ import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -65,22 +67,17 @@ public class AddTripDetails extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 3;
 
-    @BindView(R.id.dateStartText)
-    TextView dateStartText;
+    @BindView(R.id.dateStartText) TextView dateStartText;
     @BindView(R.id.dateEndText) TextView dateEndText;
     @BindView(R.id.trip_name_text_awesome) TextView dateStuff;
     @BindView(R.id.flag_button) TextView flagButton;
-    @BindView(R.id.flag_image_button)
-    ImageButton flagIcon;
-    @BindView(R.id.currency_symbol_button)
-    Button currencySymbolButton;
-    @BindView(R.id.trip_name)
-    EditText editTripName;
+    @BindView(R.id.flag_image_button) ImageButton flagIcon;
+    @BindView(R.id.currency_symbol_button) Button currencySymbolButton;
+    @BindView(R.id.trip_name) EditText editTripName;
     @BindView(R.id.start_date_button) ImageButton startDateButton;
     @BindView(R.id.end_date_button) ImageButton endDateButton;
     @BindView(R.id.currency_edit) EditText budgetEdit;
-    @BindView(R.id.upload_image)
-    ImageView uploadImage;
+    //    @BindView(R.id.upload_image) ImageView uploadImage;
     @BindView(R.id.done) TextView doneText;
     int theMonth;
     int REQUEST_STORAGE = 5;
@@ -88,8 +85,8 @@ public class AddTripDetails extends AppCompatActivity {
     String startDateData;
     String endDateData;
     CountryPicker picker;
-    Bitmap backgroundImage;
-    byte[] theBackgroundImage;
+    //    Bitmap backgroundImage;
+    int theBackgroundImage;
     byte[] countryFlagImage;
     int imageResourceNumber;
     String amount;
@@ -110,6 +107,7 @@ public class AddTripDetails extends AppCompatActivity {
     private String dateCheckFormat2;
     private Date date1;
     private Date date2;
+    int[] randomImage;
 
 
     @Override
@@ -119,7 +117,6 @@ public class AddTripDetails extends AppCompatActivity {
         ButterKnife.bind(this);
         Intent intent = getIntent();
         String tripName = intent.getStringExtra("tripName");
-        uploadImage.setImageResource(R.drawable.cave_picture);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setTitleTextColor(Color.parseColor("#ffffff"));
         final String USCurrency = "$";
@@ -127,6 +124,9 @@ public class AddTripDetails extends AppCompatActivity {
         currencySymbol2 = USCurrency;
         startDateButton.setImageResource(R.drawable.calendar_icon);
         endDateButton.setImageResource(R.drawable.calendar_icon);
+        randomImage = new int[]{R.drawable.sunset, R.drawable.dock, R.drawable.flowers, R.drawable.junglebridge, R.drawable.morocco,
+                R.drawable.pier, R.drawable.lighthouse};
+        theBackgroundImage = randomImage[new Random().nextInt(randomImage.length)];
 
         setSupportActionBar(myToolbar);
         getSupportActionBar().setTitle("");
@@ -159,13 +159,6 @@ public class AddTripDetails extends AppCompatActivity {
         });
 
         editTripName.setText(tripName);
-
-        uploadImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkPermissions();
-            }
-        });
         mContext = this;
         doneText.setOnClickListener(new View.OnClickListener() {
 
@@ -198,13 +191,13 @@ public class AddTripDetails extends AppCompatActivity {
                             .negativeText(R.string.negative_button)
                             .show();
 
-                } else if (theBackgroundImage == null) {
-                    new MaterialDialog.Builder(mContext)
-                            .title(R.string.dialog_title)
-                            .content(R.string.upload_image)
-                            .positiveText(R.string.positive_button)
-                            .negativeText(R.string.negative_button)
-                            .show();
+//                } else if (theBackgroundImage == null) {
+//                    new MaterialDialog.Builder(mContext)
+//                            .title(R.string.dialog_title)
+//                            .content(R.string.upload_image)
+//                            .positiveText(R.string.positive_button)
+//                            .negativeText(R.string.negative_button)
+//                            .show();
                 } else {
 
                     String userValue = budgetEdit.getText().toString();
@@ -239,90 +232,6 @@ public class AddTripDetails extends AppCompatActivity {
     }
 
 
-
-    private void checkPermissions() {
-        if (hasPermissionGranted()) {
-            Intent i = new Intent(
-                    Intent.ACTION_PICK,
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-            startActivityForResult(i, RESULT_LOAD_IMAGE);
-        } else {
-            requestPermission();
-        }
-    }
-
-    public boolean hasPermissionGranted(){
-        return  ContextCompat.checkSelfPermission(AddTripDetails.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
-    }
-
-    public void requestPermission() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            ActivityCompat.requestPermissions(AddTripDetails.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                    REQUEST_STORAGE);
-        }
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        View parentLayout = findViewById(R.id.blahcrap);
-
-        if (requestCode == REQUEST_STORAGE) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Intent i = new Intent(
-                        Intent.ACTION_PICK,
-                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-                startActivityForResult(i, RESULT_LOAD_IMAGE);
-
-
-            } else if (ActivityCompat.shouldShowRequestPermissionRationale(AddTripDetails.this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-
-                Drawable d = getResources().getDrawable(R.drawable.flowers, null);
-                Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
-                byte[] imageSet = ImageConvert.getBytes(bitmap);
-                theBackgroundImage = imageSet;
-                uploadImage.setImageBitmap(bitmap);
-
-                Snackbar.make(parentLayout, R.string.storage_permission,
-                        Snackbar.LENGTH_INDEFINITE)
-                        .setAction("OK", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                ActivityCompat.requestPermissions(AddTripDetails.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                                        REQUEST_STORAGE);
-                            }
-                        })
-                        .show();
-
-
-
-            } else {
-                Drawable d = getResources().getDrawable(R.drawable.flowers, null);
-                Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
-                byte[] imageSet = ImageConvert.getBytes(bitmap);
-                theBackgroundImage = imageSet;
-                uploadImage.setImageBitmap(bitmap);
-
-                Snackbar.make(parentLayout, R.string.settings_permission,
-                        Snackbar.LENGTH_INDEFINITE)
-                        .setAction("OK", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent = new Intent();
-                                intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                                Uri uri = Uri.fromParts("package", AddTripDetails.this.getPackageName(), null);
-                                intent.setData(uri);
-                                startActivity(intent);
-                            }
-                        })
-                        .show();
-            }
-        }
-    }
-
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
@@ -330,7 +239,7 @@ public class AddTripDetails extends AppCompatActivity {
         savedInstanceState.putString("dateEndText", dateEndText.getText().toString());
         savedInstanceState.putString("currencySymbol", currencySymbol2);
         savedInstanceState.putInt("imageResourceNumber", imageResourceNumber);
-        savedInstanceState.putByteArray("theBackgroundImage", theBackgroundImage);
+//        savedInstanceState.putByteArray("theBackgroundImage", theBackgroundImage);
     }
 
     @Override
@@ -344,39 +253,15 @@ public class AddTripDetails extends AppCompatActivity {
         currencySymbolButton.setText(currencySymbol2);
         imageResourceNumber = savedInstanceState.getInt("imageResourceNumber");
         flagIcon.setImageResource(imageResourceNumber);
-        theBackgroundImage = savedInstanceState.getByteArray("theBackgroundImage");
-        if (theBackgroundImage != null) {
-            Bitmap backgroundBitmap = ImageConvert.getImage(theBackgroundImage);
-            uploadImage.setImageBitmap(backgroundBitmap);
-        }
+//        theBackgroundImage = savedInstanceState.getByteArray("theBackgroundImage");
+//        if (theBackgroundImage != null) {
+//            Bitmap backgroundBitmap = ImageConvert.getImage(theBackgroundImage);
+//            uploadImage.setImageBitmap(backgroundBitmap);
+//        }
 
 
     }
 
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK) {
-
-            Uri selectedImage = data.getData();
-            String[] filePathColumn = { MediaStore.Images.Media.DATA };
-
-            Cursor cursor = getContentResolver().query(selectedImage,
-                    filePathColumn, null, null, null);
-            cursor.moveToFirst();
-
-            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            String picturePath = cursor.getString(columnIndex);
-            cursor.close();
-
-            uploadImage = (ImageView) findViewById(R.id.upload_image);
-            backgroundImage = BitmapFactory.decodeFile(picturePath);
-            theBackgroundImage = ImageConvert.getBytes(backgroundImage);
-            uploadImage.setImageBitmap(backgroundImage);
-
-
-        }
-    }
 
     public static String getCurrencySymbol(String countryCode) {
         return Currency.getInstance(new Locale("en", countryCode)).getCurrencyCode();

@@ -9,7 +9,9 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -169,27 +171,28 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public void onBindViewHolder(final MainViewHolder holder, final int position) {
 
             cursor.moveToPosition(position);
             tripIDArray.add(cursor.getString(cursor.getColumnIndex("_id")));
             Bitmap countryFlag = ImageConvert.getImage(cursor.getBlob(cursor.getColumnIndex("countryflag")));
-            Bitmap backgroundImage = ImageConvert.getImage(cursor.getBlob(cursor.getColumnIndex("backgroundimage")));
-            Drawable finalBackground = new BitmapDrawable(resources, backgroundImage);
             final String positionID = cursor.getString(cursor.getColumnIndex("_id"));
             final String tripName = cursor.getString(cursor.getColumnIndex("tripname"));
             final String tripStart = cursor.getString(cursor.getColumnIndex("startdate"));
             final String tripEnd = cursor.getString(cursor.getColumnIndex("enddate"));
             final String currencySymbol = cursor.getString(cursor.getColumnIndex("currencysymbol"));
             Double budget2 = Double.valueOf(cursor.getString(cursor.getColumnIndex("budget")));
+            int backgroundImage = cursor.getInt(cursor.getColumnIndex("backgroundimage"));
+            Drawable backgroundDrawable = getResources().getDrawable(backgroundImage, null);
             final String budget = ImageConvert.numberFormat(budget2);
             holder.minusSign.setVisibility(View.INVISIBLE);
             holder.tripName.setText(tripName);
             holder.tripDates.setText(tripStart + " - " + tripEnd);
             holder.budget.setText(currencySymbol + " " + budget);
             holder.countryFlag.setImageBitmap(countryFlag);
-            holder.backgroundImage.setBackground(finalBackground);
+            holder.backgroundImage.setBackground(backgroundDrawable);
             holder.backgroundImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

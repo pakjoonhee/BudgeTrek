@@ -26,7 +26,7 @@
                 <ImageView
                     android:id="@+id/header_logo"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/add_trip_height"
+                    android:layout_height="70dp"
                     android:contentDescription="@string/travel_lite"
                     android:scaleType="centerInside"
                     android:layout_gravity="center"
