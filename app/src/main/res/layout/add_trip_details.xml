@@ -228,15 +228,15 @@
                 android:clickable="true" />
 
 
-            <ImageView
-                android:id="@+id/upload_image"
-                android:contentDescription="@string/choose_your_currency"
-                android:layout_below="@+id/currency_symbol_button"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/margin_20"
-                android:layout_width="@dimen/measure_250"
-                android:layout_height="@dimen/measure_250"
-                android:clickable="true" />
+            <!--<ImageView-->
+                <!--android:id="@+id/upload_image"-->
+                <!--android:contentDescription="@string/choose_your_currency"-->
+                <!--android:layout_below="@+id/currency_symbol_button"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginTop="@dimen/margin_20"-->
+                <!--android:layout_width="@dimen/measure_250"-->
+                <!--android:layout_height="@dimen/measure_250"-->
+                <!--android:clickable="true" />-->
 
 
             <TextView

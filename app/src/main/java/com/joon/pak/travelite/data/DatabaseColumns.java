@@ -39,7 +39,7 @@ public class DatabaseColumns {
     @NotNull
     public static final String Country_Flag = "countryflag";
 
-    @DataType(DataType.Type.BLOB)
+    @DataType(DataType.Type.INTEGER)
     @NotNull
     public static final String Background_Image = "backgroundimage";
 

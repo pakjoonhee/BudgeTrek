@@ -3,7 +3,7 @@
     <application>
         <provider
             android:name=".data.generated.DatabaseProvider"
-            android:authorities="${applicationId}.DatabaseProvider"
+            android:authorities="com.joon.pak.travelite.data.DatabaseProvider"
             android:exported="true" />
 
     </application>

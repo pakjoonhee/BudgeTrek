@@ -53,21 +53,6 @@ public class TripData {
         this.budget = budget;
     }
 
-    public byte[] getCountryFlag() {
-        return countryFlag;
-    }
-
-    public void setCountryFlag(byte[] countryFlag) {
-        this.countryFlag = countryFlag;
-    }
-
-    public byte[] getBackgroundImage() {
-        return backgroundImage;
-    }
-
-    public void setBackgroundImage(byte[] backgroundImage) {
-        this.backgroundImage = backgroundImage;
-    }
 
     public String getNumberDay() {
         return numberDay;
