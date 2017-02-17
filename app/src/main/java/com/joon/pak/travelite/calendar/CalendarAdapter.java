@@ -47,7 +47,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarHolder> {
         final String monthDay = month + day;
         holder.theMonth.setText(month);
         holder.theDay.setText(day);
-        holder.theBackground.setOnClickListener(new View.OnClickListener() {
+        holder.theDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
@@ -59,7 +59,20 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarHolder> {
                 ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment2, fragment)
                         .commit();
+            }
+        });
+        holder.theMonth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("monthday", monthDay);
 
+                RightSideFragment fragment = new RightSideFragment();
+                fragment.setArguments(bundle);
+
+                ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment2, fragment)
+                        .commit();
             }
         });
     }

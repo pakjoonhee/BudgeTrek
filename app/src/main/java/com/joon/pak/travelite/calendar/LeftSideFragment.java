@@ -66,7 +66,6 @@ public class LeftSideFragment extends Fragment {
         context = getActivity();
         RecyclerView recyclerCalendar = (RecyclerView) rootView.findViewById(R.id.calendar_recycler_view);
         recyclerCalendar.setHasFixedSize(true);
-        recyclerCalendar.addItemDecoration(new SimpleDividerItemDecoration(context));
         recyclerCalendar.setLayoutManager(new GridLayoutManager(getActivity(), 1));
         CalendarAdapter = new CalendarAdapter(context, dates);
         recyclerCalendar.setAdapter(CalendarAdapter);

@@ -6,22 +6,24 @@ package com.joon.pak.travelite.calendar;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.joon.pak.travelite.R;
 
 public class CalendarHolder extends RecyclerView.ViewHolder {
-    public TextView theMonth;
-    public TextView theDay;
-    public RelativeLayout theBackground;
+    public Button theMonth;
+    public Button theDay;
+    public LinearLayout theBackground;
 
 
     public CalendarHolder(View itemView) {
         super(itemView);
-        theMonth = (TextView) itemView.findViewById(R.id.the_month);
-        theDay = (TextView) itemView.findViewById(R.id.the_day);
-        theBackground = (RelativeLayout) itemView.findViewById(R.id.second_relative);
+        theMonth = (Button) itemView.findViewById(R.id.the_month);
+        theDay = (Button) itemView.findViewById(R.id.the_day);
+        theBackground = (LinearLayout) itemView.findViewById(R.id.second_relative);
 
     }
 
